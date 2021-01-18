@@ -65,6 +65,7 @@ trait TestVersionTrait
             $testVersion = \trim(Helper::getConfigData('testversion'));
         }
 
+        var_dump($testVersion, $arrTestVersions);
         if (empty($testVersion) === false && isset($arrTestVersions[$testVersion]) === false) {
 
             $arrTestVersions[$testVersion] = $default;
