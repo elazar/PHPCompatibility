@@ -75,8 +75,6 @@ trait TestVersionTrait
             }
 
             if (\preg_match('`^(\d+\.\d+)?\s*-\s*(\d+\.\d+)?$`', $testVersion, $matches)) {
-                var_dump('testVersion', $testVersion);
-                var_dump('matches', $matches);
                 if (empty($matches[1]) === false || empty($matches[2]) === false) {
                     // If no lower-limit is set, we set the min version to 4.0.
                     // Whilst development focuses on PHP 5 and above, we also accept
@@ -88,14 +86,14 @@ trait TestVersionTrait
                     // If no upper-limit is set, we set the max version to 99.9.
                     $max = empty($matches[2]) ? '99.9' : $matches[2];
 
-                    var_dump('min', $min);
-                    var_dump('max', $max);
-                    var_dump('version_compare', \version_compare($min, $max, '>'));
                     if (\version_compare($min, $max, '>')) {
-                        \trigger_error(
+                        $result = \trigger_error(
                             "Invalid range in testVersion setting: '" . $testVersion . "'",
                             \E_USER_WARNING
                         );
+                        var_dump('result', $result);
+                        var_dump('error_reporting', error_reporting());
+                        var_dump('error_handler', set_error_handler(function(){},E_ALL));
                         return $default;
                     } else {
                         $arrTestVersions[$testVersion] = [$min, $max];
