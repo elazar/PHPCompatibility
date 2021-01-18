@@ -85,5 +85,5 @@ jobs:
         run: composer lint
 
       - name: Run the unit tests
-        run: echo -e "<?php phpinfo(\INFO_CONFIGURATION); ?>\n$(cat vendor/bin/phpunit)" > vendor/bin/phpunit && php vendor/bin/phpunit --no-coverage --debug --filter testGetTestVersionInvalid PHPCompatibility/Util/Tests/Helpers/TestVersionTraitUnitTest.php
+        run: php -B 'phpinfo(\INFO_CONFIGURATION);' vendor/bin/phpunit --no-coverage --debug --filter testGetTestVersionInvalid PHPCompatibility/Util/Tests/Helpers/TestVersionTraitUnitTest.php
 
