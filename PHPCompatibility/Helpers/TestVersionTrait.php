@@ -90,6 +90,7 @@ trait TestVersionTrait
 
                     var_dump('min', $min);
                     var_dump('max', $max);
+                    var_dump('version_compare', \version_compare($min, $max, '>'));
                     if (\version_compare($min, $max, '>')) {
                         \trigger_error(
                             "Invalid range in testVersion setting: '" . $testVersion . "'",
