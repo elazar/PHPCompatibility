@@ -12,6 +12,8 @@
  * @since 5.5
  */
 
+echo "\nerror_reporting = " . error_reporting() . "\n";
+
 if (defined('PHP_CODESNIFFER_IN_TESTS') === false) {
     define('PHP_CODESNIFFER_IN_TESTS', true);
 }
