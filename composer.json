@@ -53,7 +53,7 @@
   },
   "scripts" : {
     "test": [
-      "@php ./vendor/phpunit/phpunit/phpunit --no-coverage"
+      "@php ./vendor/phpunit/phpunit/phpunit --no-coverage --debug --filter testGetTestVersionInvalid PHPCompatibility/Util/Tests/Helpers/TestVersionTraitUnitTest.php"
     ],
     "coverage": [
       "@php ./vendor/phpunit/phpunit/phpunit"
