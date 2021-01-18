@@ -56,11 +56,12 @@ jobs:
           fi
 
       - name: Install PHP
-        uses: shivammathur/setup-php@v2
+        uses: shivammathur/setup-php@verbose
         with:
           php-version: ${{ matrix.php }}
           ini-values: ${{ steps.set_ini.outputs.PHP_INI }}
           coverage: none
+          update: true
 
       - name: 'Composer: set PHPCS version for tests'
         run: |
@@ -85,5 +86,5 @@ jobs:
         run: composer lint
 
       - name: Run the unit tests
-        run: php -B 'phpinfo(\INFO_CONFIGURATION);' vendor/bin/phpunit --no-coverage --debug --filter testGetTestVersionInvalid PHPCompatibility/Util/Tests/Helpers/TestVersionTraitUnitTest.php
+        run: php vendor/bin/phpunit --no-coverage --debug --filter testGetTestVersionInvalid PHPCompatibility/Util/Tests/Helpers/TestVersionTraitUnitTest.php
 

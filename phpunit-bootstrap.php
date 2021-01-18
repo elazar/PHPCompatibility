@@ -12,8 +12,6 @@
  * @since 5.5
  */
 
-phpinfo(\INFO_CONFIGURATION);
-
 if (defined('PHP_CODESNIFFER_IN_TESTS') === false) {
     define('PHP_CODESNIFFER_IN_TESTS', true);
 }
