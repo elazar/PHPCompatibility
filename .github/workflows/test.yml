@@ -198,7 +198,7 @@ jobs:
           composer-options: --ignore-platform-reqs
 
       - name: Run the unit tests
-        run: vendor/bin/phpunit --no-coverage
+        run: vendor/bin/phpunit --no-coverage --debug --filter testGetTestVersionInvalid PHPCompatibility/Util/Tests/Helpers/TestVersionTraitUnitTest.php
 
   #### CODE COVERAGE STAGE ####
   # N.B.: Coverage is only checked on the lowest and highest stable PHP versions
@@ -283,7 +283,7 @@ jobs:
           composer-options: --ignore-platform-reqs
 
       - name: Run the unit tests with code coverage
-        run: vendor/bin/phpunit
+        run: vendor/bin/phpunit --debug --filter testGetTestVersionInvalid PHPCompatibility/Util/Tests/Helpers/TestVersionTraitUnitTest.php
 
       # Uploading the results with PHP Coveralls v1 won't work from GH Actions, so switch the PHP version.
       - name: Switch to PHP 7.4
