@@ -87,13 +87,10 @@ trait TestVersionTrait
                     $max = empty($matches[2]) ? '99.9' : $matches[2];
 
                     if (\version_compare($min, $max, '>')) {
-                        $result = \trigger_error(
+                        \trigger_error(
                             "Invalid range in testVersion setting: '" . $testVersion . "'",
                             \E_USER_WARNING
                         );
-                        var_dump('result', $result);
-                        var_dump('error_reporting', error_reporting());
-                        var_dump('error_handler', set_error_handler(function(){},E_ALL));
                         return $default;
                     } else {
                         $arrTestVersions[$testVersion] = [$min, $max];
