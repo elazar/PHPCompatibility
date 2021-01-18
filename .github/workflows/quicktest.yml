@@ -61,6 +61,7 @@ jobs:
           php-version: ${{ matrix.php }}
           ini-values: ${{ steps.set_ini.outputs.PHP_INI }}
           coverage: none
+        env:
           update: true
 
       - name: 'Composer: set PHPCS version for tests'
